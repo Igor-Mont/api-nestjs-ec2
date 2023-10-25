@@ -17,6 +17,7 @@ jobs:
           REMOTE_USER: ${{ secrets.REMOTE_USER }}
           TARGET: /home/${{ secrets.REMOTE_USER }}/app
 
+      - uses: actions/checkout@v2
       - name: Install Node.js
         uses: actions/setup-node@v3
         with:
