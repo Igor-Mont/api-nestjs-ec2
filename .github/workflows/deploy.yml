@@ -25,4 +25,8 @@ jobs:
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           port: 22
           script: |
-            pwd
+            cd app
+            npm install --silent
+            npm run build
+            cd dist
+            node ./main.js
