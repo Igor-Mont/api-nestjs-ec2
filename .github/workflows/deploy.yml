@@ -25,7 +25,6 @@ jobs:
           node-version: 14
 
       - name: Execute remote ssh commands using ssh-private-key
-        needs: [Install nodejs]
         uses: appleboy/ssh-action@master
         with:
           host: ${{ secrets.REMOTE_HOST }}
