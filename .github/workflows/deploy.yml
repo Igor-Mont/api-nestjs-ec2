@@ -8,7 +8,9 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - name: Checkout code
+        uses: actions/checkout@v2
+
       - name: Deploy to Staging Server
         uses: easingthemes/ssh-deploy@main
         env:
@@ -17,13 +19,12 @@ jobs:
           REMOTE_USER: ${{ secrets.REMOTE_USER }}
           TARGET: /home/${{ secrets.REMOTE_USER }}/app
 
-      - uses: actions/checkout@v4
       - name: Install nodejs
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v2
         with:
-          node-version: 18
+          node-version: 14
 
-      - name: executing remote ssh commands using ssh-private-key
+      - name: Execute remote ssh commands using ssh-private-key
         uses: appleboy/ssh-action@master
         with:
           host: ${{ secrets.REMOTE_HOST }}
