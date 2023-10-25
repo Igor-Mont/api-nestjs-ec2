@@ -1,0 +1,12 @@
+name: Deploy App EC2
+
+on:
+  push:
+    branches: ['master']
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Echo Step
+        run: echo "Testando"
