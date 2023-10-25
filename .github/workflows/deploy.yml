@@ -20,9 +20,9 @@ jobs:
           TARGET: /home/${{ secrets.REMOTE_USER }}/app
 
       - name: Install nodejs
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v3
         with:
-          node-version: 14
+          node-version: 18
 
       - name: Execute remote ssh commands using ssh-private-key
         uses: appleboy/ssh-action@master
