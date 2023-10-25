@@ -5,6 +5,14 @@ on:
     branches: ['master']
 
 jobs:
+  install_nodejs:
+    runs-on: ubuntu-lates
+    steps:
+    - uses: actions/checkout@v4
+    - uses: actions/setup-node@v3
+      with:
+        node-version: 18
+        
   deploy:
     runs-on: ubuntu-latest
     steps:
@@ -18,7 +26,7 @@ jobs:
           TARGET: /home/${{ secrets.REMOTE_USER }}/app
 
       - name: executing remote ssh commands using ssh-private-key
-      - uses: appleboy/ssh-action@master
+        uses: appleboy/ssh-action@master
         with:
           host: ${{ secrets.REMOTE_HOST }}
           username: ${{ secrets.REMOTE_USER }}
