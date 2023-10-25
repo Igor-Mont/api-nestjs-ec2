@@ -17,11 +17,11 @@ jobs:
           REMOTE_USER: ${{ secrets.REMOTE_USER }}
           TARGET: /home/${{ secrets.REMOTE_USER }}/app
 
-      - name: executing remote ssh commands using ssh-private-key
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2
+      - uses: actions/setup-node@v3
         with:
-          node-version: 18.x
+          node-version: 18
+
+      - name: executing remote ssh commands using ssh-private-key
       - uses: appleboy/ssh-action@master
         with:
           host: ${{ secrets.REMOTE_HOST }}
