@@ -39,4 +39,4 @@ jobs:
             npm install --silent
             npm run build
             cd dist
-            pm2 --help
+            pm2 start ./main.js
