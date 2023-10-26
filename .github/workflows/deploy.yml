@@ -4,7 +4,7 @@ on:
   push:
     branches: ['master']
 
-jobs:   
+jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
@@ -33,10 +33,10 @@ jobs:
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           port: 22
           script: |
-           export NVM_DIR="$HOME/.nvm"
-           [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+            export NVM_DIR="$HOME/.nvm"
+            [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
             cd app
             npm install --silent
             npm run build
             cd dist
-            node ./main.js
+            pm2 --help
